@@ -63,6 +63,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="view\frm_menu_principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\frm_menu_principal.Designer.cs">
+      <DependentUpon>frm_menu_principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\frm_filme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <EmbeddedResource Include="view\frm_filme.resx">
       <DependentUpon>frm_filme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\frm_menu_principal.resx">
+      <DependentUpon>frm_menu_principal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,9 +102,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\black_adam.jpg" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,13 +44,11 @@ namespace AutoCine.dao
             }
         }
 
-        public DataTable listarFilme(int cod_filme)
+        public DataTable listarFilme()
         {
-            string sql = @"select * from filmes where codigo_filme=@codigo";
+            string sql = @"select * from filmes";
 
             MySqlCommand comandosql = new MySqlCommand(sql, conexao);
-
-            comandosql.Parameters.AddWithValue("@codigo", cod_filme);
 
             comandosql.ExecuteNonQuery();
 
