@@ -17,26 +17,30 @@ namespace AutoCine.dao
         MySqlConnection conexao = ConnectionFactory.getConnection();
 
         public FilmeDAO() {
-            conexao.Open();
         }
-        public void cadastrar(Filme obj)
+        public void cadastrar(Filme obj, string foto)
         {
+            conexao.Open();
+
             try
             {
-                string sql = @"insert into filmes (nome_filme, sinopse, classificacao, genero, duracao) 
-             values (@nome, @sinopse, @classificacao, @genero, @duracao)";
+
+                string sql = @"insert into filme (id_filme, nome, sinopse, classificacao_etaria, genero, duracao, foto) 
+                 values (@id, @nome, @sinopse, @classificacao, @genero, @duracao, @foto)";
                 MySqlCommand comandosql = new MySqlCommand(sql, conexao);
                 comandosql.Parameters.AddWithValue("@nome", obj.Nome);
                 comandosql.Parameters.AddWithValue("@sinopse", obj.Sinopse);
                 comandosql.Parameters.AddWithValue("@classificacao", obj.Classificacao);
                 comandosql.Parameters.AddWithValue("@genero", obj.Genero);
                 comandosql.Parameters.AddWithValue("@duracao", obj.Duracao);
+                comandosql.Parameters.AddWithValue("@foto", foto);
+                comandosql.Parameters.AddWithValue("@id", obj.Codigo);
 
                 comandosql.ExecuteNonQuery();
 
                 conexao.Close();
 
-                MessageBox.Show("Cadastro executado com sucesso");
+                MessageBox.Show("Cadastro efetuado com sucesso", "", MessageBoxButtons.OK);
             }
             catch (Exception erro) 
             {
@@ -46,7 +50,9 @@ namespace AutoCine.dao
 
         public DataTable listarFilme()
         {
-            string sql = @"select * from filmes";
+            conexao.Open();
+
+            string sql = @"select * from filme";
 
             MySqlCommand comandosql = new MySqlCommand(sql, conexao);
 

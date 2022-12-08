@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace AutoCine.view
 {
-    public partial class assentos : Form
+    public partial class messageBox_pagamento : Form
     {
-        public assentos()
+        public messageBox_pagamento()
         {
             InitializeComponent();
+        }
+
+        private void messageBox_pagamento_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

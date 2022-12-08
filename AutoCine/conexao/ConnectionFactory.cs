@@ -12,7 +12,7 @@ namespace AutoCine.conexao
     {
         public static MySqlConnection getConnection()
         {
-            string conexao = "server = localhost; user ID = root; password =; database = cine_auto";
+            string conexao = "server = localhost; user ID = root; password =; database = cinelocal";
 
             return new MySqlConnection(conexao);
         }

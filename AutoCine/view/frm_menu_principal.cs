@@ -22,29 +22,37 @@ namespace AutoCine.view
         {
             FilmeDAO dao = new FilmeDAO();
             DataTable slot = dao.listarFilme();
-            titulo1.Text = slot.Rows[0]["nome_filme"].ToString();
+            titulo1.Text = slot.Rows[0]["nome"].ToString();
             string imagem1 = slot.Rows[0]["foto"].ToString();
             foto1.Image = Image.FromFile("C:/banco_fotos/" + imagem1 + ".jpg ");
 
-            titulo2.Text = slot.Rows[1]["nome_filme"].ToString();
+            titulo2.Text = slot.Rows[1]["nome"].ToString();
             string imagem2 = slot.Rows[1]["foto"].ToString();
             foto2.Image = Image.FromFile("C:/banco_fotos/" + imagem2 + ".jpg ");
 
-            titulo3.Text = slot.Rows[2]["nome_filme"].ToString();
+            titulo3.Text = slot.Rows[2]["nome"].ToString();
             string imagem3 = slot.Rows[2]["foto"].ToString();
             foto3.Image = Image.FromFile("C:/banco_fotos/" + imagem3 + ".jpg ");
 
-            titulo4.Text = slot.Rows[3]["nome_filme"].ToString();
+            titulo4.Text = slot.Rows[3]["nome"].ToString();
             string imagem4 = slot.Rows[3]["foto"].ToString();
             foto4.Image = Image.FromFile("C:/banco_fotos/" + imagem4 + ".jpg ");
 
-            titulo5.Text = slot.Rows[4]["nome_filme"].ToString();
+            titulo5.Text = slot.Rows[4]["nome"].ToString();
             string imagem5 = slot.Rows[4]["foto"].ToString();
             foto5.Image = Image.FromFile("C:/banco_fotos/" + imagem5 + ".jpg ");
 
-            titulo6.Text = slot.Rows[5]["nome_filme"].ToString();
-            string imagem6 = slot.Rows[5]["foto"].ToString();
-            foto6.Image = Image.FromFile("C:/banco_fotos/" + imagem6 + ".jpg ");
+            try
+            {
+                titulo6.Text = slot.Rows[6]["nome"].ToString();
+                string imagem6 = slot.Rows[6]["foto"].ToString();
+                foto6.Image = Image.FromFile("C:/banco_fotos/" + imagem6 + ".jpg ");
+            }
+            catch{ 
+                titulo6.Visible= false;
+                foto6.Visible= false;
+            }
+          
         }
 
         private void foto1_Click(object sender, EventArgs e)
@@ -84,7 +92,7 @@ namespace AutoCine.view
 
         private void foto6_Click(object sender, EventArgs e)
         {
-            frm_filme tela_filme = new frm_filme(6);
+            frm_filme tela_filme = new frm_filme(7);
             tela_filme.Show();
             this.Hide();
         }
@@ -126,8 +134,15 @@ namespace AutoCine.view
 
         private void titulo6_Click(object sender, EventArgs e)
         {
-            frm_filme tela_filme = new frm_filme(6);
+            frm_filme tela_filme = new frm_filme(7);
             tela_filme.Show();
+            this.Hide();
+        }
+
+        private void lbl_admin_Click(object sender, EventArgs e)
+        {
+            frm_login tela_login = new frm_login();
+            tela_login.Show();
             this.Hide();
         }
     }

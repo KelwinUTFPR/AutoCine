@@ -17,7 +17,7 @@ namespace AutoCine
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new assentos());
+            Application.Run(new frm_menu_principal());
         }
     }
 }
